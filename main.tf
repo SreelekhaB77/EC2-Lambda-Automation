@@ -48,10 +48,10 @@ resource "aws_iam_role_policy" "scheduler_policy" {
   })
 }
 
-# Start EC2 at 3:10 PM IST (09:40 UTC)
+# Start EC2 at 5:05 PM IST (11:35 UTC)
 resource "aws_scheduler_schedule" "start_ec2" {
   name                = "start-ec2-schedule"
-  schedule_expression = "cron(40 9 ? * * *)"
+  schedule_expression = "cron(35 11 ? * * *)"
 
   flexible_time_window {
     mode = "OFF"
@@ -69,10 +69,10 @@ resource "aws_scheduler_schedule" "start_ec2" {
   depends_on = [aws_lambda_function.ec2_scheduler]
 }
 
-# Stop EC2 at 3:15 PM IST (09:45 UTC)
+# Stop EC2 at 5:10 PM IST (11:40 UTC)
 resource "aws_scheduler_schedule" "stop_ec2" {
   name                = "stop-ec2-schedule"
-  schedule_expression = "cron(45 9 ? * * *)"
+  schedule_expression = "cron(40 11 ? * * *)"
 
   flexible_time_window {
     mode = "OFF"
