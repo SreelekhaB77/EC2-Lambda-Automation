@@ -1,0 +1,10 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore Terraform cache and providers
+.terraform/
+terraform.exe
+
+# Optional: ignore crash logs
+crash.log
